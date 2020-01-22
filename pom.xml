@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>br.com.lucasromagnoli.javaee</groupId>
+    <artifactId>underpinning</artifactId>
+    <version>1.0.0.RC1-SNAPSHOT</version>
+    <packaging>pom</packaging>
+
+    <name>Underpinning - [Parent]</name>
+    <description>Base of anothers projects</description>
+    <organization>
+        <name>Lucas Ramos Romagnoli</name>
+        <url>https://www.github.com/lucasromagnoli</url>
+    </organization>
+
+    <properties>
+        <!-- Versão do Plugin Maven Compiler -->
+        <maven.compiler.plugin.version>3.5.1</maven.compiler.plugin.version>
+
+        <!-- Versão do compilador Java -->
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+
+        <!-- Encoding padrão para o Maven Compiler Plugin -->
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+
+        <!-- Versão do Underpinning -->
+        <br.com.lucasromagnoli.underpinning.version>1.0.0.RC1-SNAPSHOT</br.com.lucasromagnoli.underpinning.version>
+
+    </properties>
+
+    <modules>
+        <module>underpinning-domain</module>
+        <module>underpinning-web</module>
+    </modules>
+</project>
