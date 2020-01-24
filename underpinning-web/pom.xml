@@ -18,13 +18,25 @@
         <url>https://www.github.com/lucasromagnoli</url>
     </organization>
 
-    <dependencies>
+    <properties>
+        <!-- Servlet API Version -->
+        <javax.servlet-api.version>4.0.1</javax.servlet-api.version>
+    </properties>
 
+    <dependencies>
         <!--    Underpinning - [Domain]    -->
         <dependency>
             <groupId>br.com.lucasromagnoli.javaee</groupId>
             <artifactId>underpinning-domain</artifactId>
             <version>${br.com.lucasromagnoli.underpinning.version}</version>
+        </dependency>
+
+        <!-- Servlet API -->
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+            <version>${javax.servlet-api.version}</version>
+            <scope>compile</scope>
         </dependency>
     </dependencies>
 

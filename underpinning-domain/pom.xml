@@ -22,6 +22,9 @@
     <properties>
         <!-- Versão do Springframework BOM -->
         <spring-framework.version>5.2.3.RELEASE</spring-framework.version>
+
+        <!-- Versão do Apache Commons Lang3 -->
+        <org.apache.commons.commons-lang3.version>3.9</org.apache.commons.commons-lang3.version>
     </properties>
 
     <dependencyManagement>
@@ -44,6 +47,14 @@
             <artifactId>spring-webmvc</artifactId>
             <scope>compile</scope>
         </dependency>
+
+        <!-- Apache Commons Lang3 -->
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>${org.apache.commons.commons-lang3.version}</version>
+        </dependency>
+
     </dependencies>
 
     <build>
