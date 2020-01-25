@@ -9,10 +9,10 @@
     </parent>
 
     <modelVersion>4.0.0</modelVersion>
-    <artifactId>underpinning-domain</artifactId>
+    <artifactId>underpinning-commons</artifactId>
     <packaging>jar</packaging>
 
-    <name>Underpinning - [Domain]</name>
+    <name>Underpinning - [Commons]</name>
     <description>Base of anothers projects</description>
     <organization>
         <name>Lucas Ramos Romagnoli</name>
@@ -20,39 +20,38 @@
     </organization>
 
     <properties>
-        <!-- Versão do Springframework BOM -->
-        <spring-framework.version>5.2.3.RELEASE</spring-framework.version>
+        <!-- Apache Commons Lang3 Version -->
+        <org.apache.commons.commons-lang3.version>3.9</org.apache.commons.commons-lang3.version>
+
+        <!-- Jackson Version -->
+        <com.fasterxml.jackson.core.version>2.10.1</com.fasterxml.jackson.core.version>
 
     </properties>
-
-    <dependencyManagement>
-        <dependencies>
-            <!-- Springframework BOM -->
-            <dependency>
-                <groupId>org.springframework</groupId>
-                <artifactId>spring-framework-bom</artifactId>
-                <version>${spring-framework.version}</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-        </dependencies>
-    </dependencyManagement>
-
     <dependencies>
-        <!-- Springframework MVC -->
+
+        <!--  Jackson -->
         <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-webmvc</artifactId>
-            <scope>compile</scope>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-core</artifactId>
+            <version>${com.fasterxml.jackson.core.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>${com.fasterxml.jackson.core.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-annotations</artifactId>
+            <version>${com.fasterxml.jackson.core.version}</version>
         </dependency>
 
-        <!-- Underpinning Commons -->
+        <!-- Apache Commons Lang3 -->
         <dependency>
-            <groupId>br.com.lucasromagnoli.javaee</groupId>
-            <artifactId>underpinning-commons</artifactId>
-            <version>${br.com.lucasromagnoli.underpinning.version}</version>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>${org.apache.commons.commons-lang3.version}</version>
         </dependency>
-
     </dependencies>
 
     <build>
@@ -70,5 +69,4 @@
 
         </plugins>
     </build>
-
 </project>

@@ -36,5 +36,6 @@
     <modules>
         <module>underpinning-domain</module>
         <module>underpinning-web</module>
+        <module>underpinning-commons</module>
     </modules>
 </project>
