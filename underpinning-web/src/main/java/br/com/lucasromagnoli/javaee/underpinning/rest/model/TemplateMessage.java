@@ -4,6 +4,10 @@ import br.com.lucasromagnoli.javaee.underpinning.commons.support.BooleanSupport;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
+/**
+ * @author github.com/lucasromagnoli
+ * @since 27/01/2020
+ */
 public class TemplateMessage {
     private MessageType messageType;
     private String message;

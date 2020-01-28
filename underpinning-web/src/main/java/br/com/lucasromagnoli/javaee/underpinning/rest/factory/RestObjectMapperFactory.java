@@ -6,6 +6,10 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.PropertyNamingStrategy;
 import com.fasterxml.jackson.databind.SerializationFeature;
 
+/**
+ * @author github.com/lucasromagnoli
+ * @since 27/01/2020
+ */
 public class RestObjectMapperFactory {
     private RestObjectMapperFactory() {}
 

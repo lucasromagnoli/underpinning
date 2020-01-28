@@ -5,6 +5,10 @@ import br.com.lucasromagnoli.javaee.underpinning.commons.model.Validation;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * @author github.com/lucasromagnoli
+ * @since 27/01/2020
+ */
 public class ValidationSupport {
     private Map<String, String> details;
 

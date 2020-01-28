@@ -1,5 +1,9 @@
 package br.com.lucasromagnoli.javaee.underpinning.commons.support;
 
+/**
+ * @author github.com/lucasromagnoli
+ * @since 27/01/2020
+ */
 public class BooleanSupport {
     private BooleanSupport() {}
 

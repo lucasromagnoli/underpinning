@@ -4,6 +4,10 @@ import br.com.lucasromagnoli.javaee.underpinning.rest.model.MessageType;
 import br.com.lucasromagnoli.javaee.underpinning.rest.model.TemplateMessage;
 import org.springframework.http.HttpStatus;
 
+/**
+ * @author github.com/lucasromagnoli
+ * @since 27/01/2020
+ */
 public class TemplateMessageSupport {
     private HttpStatus httpStatus;
     private String message;
