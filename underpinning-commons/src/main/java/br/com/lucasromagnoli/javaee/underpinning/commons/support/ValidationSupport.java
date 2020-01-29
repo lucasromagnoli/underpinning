@@ -1,6 +1,6 @@
 package br.com.lucasromagnoli.javaee.underpinning.commons.support;
 
-import br.com.lucasromagnoli.javaee.underpinning.commons.model.Validation;
+import br.com.lucasromagnoli.javaee.underpinning.commons.validation.Validation;
 
 import java.util.HashMap;
 import java.util.Map;

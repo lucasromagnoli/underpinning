@@ -1,6 +1,6 @@
 package br.com.lucasromagnoli.javaee.underpinning.commons.exception;
 
-import br.com.lucasromagnoli.javaee.underpinning.commons.model.Validation;
+import br.com.lucasromagnoli.javaee.underpinning.commons.validation.Validation;
 import br.com.lucasromagnoli.javaee.underpinning.commons.support.ValidationSupport;
 
 /**

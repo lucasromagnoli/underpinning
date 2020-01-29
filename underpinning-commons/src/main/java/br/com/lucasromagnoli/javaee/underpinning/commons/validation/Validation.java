@@ -1,7 +1,6 @@
-package br.com.lucasromagnoli.javaee.underpinning.commons.model;
+package br.com.lucasromagnoli.javaee.underpinning.commons.validation;
 
-import br.com.lucasromagnoli.javaee.underpinning.commons.exception.UnderpinningBusinessValidationException;
-import br.com.lucasromagnoli.javaee.underpinning.commons.exception.UnderpinningInputValidationException;
+import br.com.lucasromagnoli.javaee.underpinning.commons.exception.UnderpinningValidationException;
 import br.com.lucasromagnoli.javaee.underpinning.commons.support.BooleanSupport;
 
 import java.util.HashMap;
@@ -36,16 +35,9 @@ public class Validation {
         details.put(field, fieldMessage);
     }
 
-    public void throwInputException() throws UnderpinningInputValidationException {
+    public void throwValidationException() throws UnderpinningValidationException {
         if (!BooleanSupport.isNull(details) && !details.isEmpty()) {
-            throw new UnderpinningInputValidationException(this);
+            throw new UnderpinningValidationException(this);
         }
     }
-
-    public void throwBusinessException() throws UnderpinningBusinessValidationException {
-        if (!BooleanSupport.isNull(details) && !details.isEmpty()) {
-            throw new UnderpinningBusinessValidationException(this);
-        }
-    }
-
 }
