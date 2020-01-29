@@ -10,6 +10,7 @@ import br.com.lucasromagnoli.javaee.underpinning.commons.validation.ValidationTy
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -49,13 +50,13 @@ public class ValidatorSupport {
     }
 
     public ValidatorSupport field(String field) {
-        this.fields.add(new ValidationField(field, ValidationType.OBJECT_FIELD_NOT_NULL));
+        this.fields.add(new ValidationField(field, ValidationType.OBJECT_NOT_NULL));
         return this;
     }
 
     public ValidatorSupport fields(String ...fields) {
         for (String field : fields) {
-            this.fields.add(new ValidationField(field, ValidationType.OBJECT_FIELD_NOT_NULL));
+            this.fields.add(new ValidationField(field, ValidationType.OBJECT_NOT_NULL));
         }
 
         return this;
@@ -85,7 +86,7 @@ public class ValidatorSupport {
                 Object reflectionReturn = reflectionGetterField(field.getName(), target);
 
                 switch (field.getValidationType()) {
-                    case OBJECT_FIELD_NOT_NULL:
+                    case OBJECT_NOT_NULL:
                         verifyNullAndEmptyValues(field, reflectionReturn);
                         break;
                     case STRING_MAX_LENGTH:
@@ -96,6 +97,15 @@ public class ValidatorSupport {
                         break;
                     case STRING_BETWEEN_LENGTH:
                         verifyStringLength(field, reflectionReturn, (Integer) field.getArguments()[0], (Integer) field.getArguments()[1]);
+                        break;
+                    case DATE_BEFORE:
+                        verifyDateBefore(field, reflectionReturn, (Date) field.getArguments()[0]);
+                        break;
+                    case DATE_AFTER:
+                        verifyDateAfter(field, reflectionReturn, (Date) field.getArguments()[0]);
+                        break;
+                    case DATE_BETWEEN:
+                        verifyDateSeason(field, reflectionReturn, (Date) field.getArguments()[0], (Date) field.getArguments()[1]);
                         break;
                 }
 
@@ -115,6 +125,30 @@ public class ValidatorSupport {
 
     private void verifyStringLength(ValidationField field, Object target, Integer minLength, Integer maxLength) {
         if (target == null || target.toString().trim().length() > maxLength || target.toString().trim().length() < minLength) {
+            validation.rejectField(field.getName(), field.getValidationType().message);
+        }
+    }
+
+    private void verifyDateAfter(ValidationField field, Object target, Date maxDate) {
+        Date targetCasted = (Date) target;
+
+        if (targetCasted.after(maxDate)) {
+            validation.rejectField(field.getName(), field.getValidationType().message);
+        }
+    }
+
+    private void verifyDateBefore(ValidationField field, Object target, Date minDate) {
+        Date targetCasted = (Date) target;
+
+        if (targetCasted.before(minDate)) {
+            validation.rejectField(field.getName(), field.getValidationType().message);
+        }
+    }
+
+    private void verifyDateSeason(ValidationField field, Object target, Date minDate, Date maxDate) {
+        Date targetCasted = (Date) target;
+
+        if (targetCasted.before(minDate) && targetCasted.after(maxDate)) {
             validation.rejectField(field.getName(), field.getValidationType().message);
         }
     }
