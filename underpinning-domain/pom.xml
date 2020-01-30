@@ -23,6 +23,14 @@
         <!-- Versão do Springframework BOM -->
         <spring-framework.version>5.2.3.RELEASE</spring-framework.version>
 
+        <!-- Versão do Mysql Connector -->
+        <mysql-connector-java.version>8.0.18</mysql-connector-java.version>
+
+        <!-- Versão do Hibernate -->
+        <hibernate.version>5.4.8.Final</hibernate.version>
+
+        <!-- Versão do Spring Data JPA -->
+        <spring-data-jpa.version>2.2.1.RELEASE</spring-data-jpa.version>
     </properties>
 
     <dependencyManagement>
@@ -43,6 +51,30 @@
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-webmvc</artifactId>
+            <scope>compile</scope>
+        </dependency>
+
+        <!-- JPA & Hibernate -->
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-entitymanager</artifactId>
+            <version>${hibernate.version}</version>
+            <scope>compile</scope>
+        </dependency>
+
+        <!-- Hibernate - Java 8 support -->
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-java8</artifactId>
+            <version>${hibernate.version}</version>
+            <scope>compile</scope>
+        </dependency>
+
+        <!-- Spring Data JPA -->
+        <dependency>
+            <groupId>org.springframework.data</groupId>
+            <artifactId>spring-data-jpa</artifactId>
+            <version>${spring-data-jpa.version}</version>
             <scope>compile</scope>
         </dependency>
 
