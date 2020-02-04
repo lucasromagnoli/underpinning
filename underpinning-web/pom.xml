@@ -19,12 +19,17 @@
     </organization>
 
     <properties>
+        <!-- Versão do Spring Security -->
+        <spring-security.version>5.2.1.RELEASE</spring-security.version>
+
         <!-- Servlet API Version -->
         <javax.servlet-api.version>4.0.1</javax.servlet-api.version>
+
+        <io.jsonwebtoken.jjwt.version>0.9.1</io.jsonwebtoken.jjwt.version>
     </properties>
 
     <dependencies>
-        <!--    Underpinning - [Domain]    -->
+        <!-- Underpinning - [Domain] -->
         <dependency>
             <groupId>br.com.lucasromagnoli.javaee</groupId>
             <artifactId>underpinning-domain</artifactId>
@@ -37,6 +42,29 @@
             <artifactId>javax.servlet-api</artifactId>
             <version>${javax.servlet-api.version}</version>
             <scope>compile</scope>
+        </dependency>
+
+        <!-- Spring Security Web-->
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-web</artifactId>
+            <version>${spring-security.version}</version>
+            <scope>compile</scope>
+        </dependency>
+
+        <!-- Spring Security Config-->
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-config</artifactId>
+            <version>${spring-security.version}</version>
+            <scope>compile</scope>
+        </dependency>
+
+        <!-- JWT -->
+        <dependency>
+            <groupId>io.jsonwebtoken</groupId>
+            <artifactId>jjwt</artifactId>
+            <version>${io.jsonwebtoken.jjwt.version}</version>
         </dependency>
     </dependencies>
 
