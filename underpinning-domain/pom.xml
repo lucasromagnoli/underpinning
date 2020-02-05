@@ -23,6 +23,9 @@
         <!-- Versão do Springframework BOM -->
         <spring-framework.version>5.2.3.RELEASE</spring-framework.version>
 
+        <!-- Versão do Spring Security -->
+        <spring-security.version>5.2.1.RELEASE</spring-security.version>
+
         <!-- Versão do Mysql Connector -->
         <mysql-connector-java.version>8.0.18</mysql-connector-java.version>
 
@@ -81,6 +84,22 @@
             <groupId>org.springframework.data</groupId>
             <artifactId>spring-data-jpa</artifactId>
             <version>${spring-data-jpa.version}</version>
+            <scope>compile</scope>
+        </dependency>
+
+        <!-- Spring Security Web-->
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-web</artifactId>
+            <version>${spring-security.version}</version>
+            <scope>compile</scope>
+        </dependency>
+
+        <!-- Spring Security Config-->
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-config</artifactId>
+            <version>${spring-security.version}</version>
             <scope>compile</scope>
         </dependency>
 

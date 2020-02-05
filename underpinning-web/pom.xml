@@ -19,9 +19,6 @@
     </organization>
 
     <properties>
-        <!-- Versão do Spring Security -->
-        <spring-security.version>5.2.1.RELEASE</spring-security.version>
-
         <!-- Servlet API Version -->
         <javax.servlet-api.version>4.0.1</javax.servlet-api.version>
 
@@ -41,22 +38,6 @@
             <groupId>javax.servlet</groupId>
             <artifactId>javax.servlet-api</artifactId>
             <version>${javax.servlet-api.version}</version>
-            <scope>compile</scope>
-        </dependency>
-
-        <!-- Spring Security Web-->
-        <dependency>
-            <groupId>org.springframework.security</groupId>
-            <artifactId>spring-security-web</artifactId>
-            <version>${spring-security.version}</version>
-            <scope>compile</scope>
-        </dependency>
-
-        <!-- Spring Security Config-->
-        <dependency>
-            <groupId>org.springframework.security</groupId>
-            <artifactId>spring-security-config</artifactId>
-            <version>${spring-security.version}</version>
             <scope>compile</scope>
         </dependency>
 
