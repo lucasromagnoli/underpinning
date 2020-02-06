@@ -10,6 +10,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import java.security.PrivateKey;
 import java.security.PublicKey;
+import java.time.ZonedDateTime;
+import java.util.Date;
 
 /**
  * @author github.com/lucasromagnoli
@@ -17,6 +19,8 @@ import java.security.PublicKey;
  */
 public class UnderpinningJwtSecurityService {
     private static final String TOKEN_PREFIX = "Bearer ";
+    private static final Integer DEFAULT_EXPIRATION_TOKEN_IN_MINUTES = 30;
+
     private PublicKey publicKey;
     private PrivateKey privateKey;
 
@@ -37,6 +41,7 @@ public class UnderpinningJwtSecurityService {
         return Jwts.builder()
                 .claim("user_id", systemUser.getId())
                 .claim("roles", systemUser.getRoles())
+                .setExpiration(Date.from(ZonedDateTime.now().plusMinutes(DEFAULT_EXPIRATION_TOKEN_IN_MINUTES).toInstant()))
                 .signWith(SignatureAlgorithm.RS256, privateKey)
                 .compact();
     }
