@@ -1,4 +1,4 @@
-package br.com.lucasromagnoli.javaee.underpinning.rest.model;
+package br.com.lucasromagnoli.javaee.underpinning.rest.security.jwt;
 
 /**
  * @author github.com/lucasromagnoli

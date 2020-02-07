@@ -1,7 +1,6 @@
-package br.com.lucasromagnoli.javaee.underpinning.rest.config;
+package br.com.lucasromagnoli.javaee.underpinning.rest.security.jwt;
 
 import br.com.lucasromagnoli.javaee.underpinning.commons.exception.UnderpinningException;
-import br.com.lucasromagnoli.javaee.underpinning.rest.service.UnderpinningJwtSecurityService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 
@@ -12,11 +11,16 @@ import java.security.PublicKey;
  * @author github.com/lucasromagnoli
  * @since 03/02/2020
  */
-public abstract class UnderpinningJwtRestSecurityConfiguration extends WebSecurityConfigurerAdapter {
+public abstract class JwtRestSecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     @Bean
-    public UnderpinningJwtSecurityService underpinningJwtSecurityService() throws UnderpinningException {
-        return new UnderpinningJwtSecurityService(publicKey(), privateKey());
+    public JwtAuthenticationService underpinningJwtSecurityService() throws UnderpinningException {
+        return new JwtAuthenticationService(publicKey(), privateKey());
+    }
+
+    @Bean
+    public JwtGrantAuthorizationFilter jwtRestGrantAuthorizationFilter() {
+        return new JwtGrantAuthorizationFilter();
     }
 
     public abstract PrivateKey privateKey() throws UnderpinningException;
