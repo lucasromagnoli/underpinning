@@ -11,7 +11,7 @@ import java.security.PublicKey;
  * @author github.com/lucasromagnoli
  * @since 03/02/2020
  */
-public abstract class JwtRestSecurityConfiguration extends WebSecurityConfigurerAdapter {
+public abstract class JwtSecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     @Bean
     public JwtAuthenticationService underpinningJwtSecurityService() throws UnderpinningException {
@@ -19,8 +19,13 @@ public abstract class JwtRestSecurityConfiguration extends WebSecurityConfigurer
     }
 
     @Bean
-    public JwtGrantAuthorizationFilter jwtRestGrantAuthorizationFilter() {
+    public JwtGrantAuthorizationFilter jwtGrantAuthorizationFilter() {
         return new JwtGrantAuthorizationFilter();
+    }
+
+    @Bean
+    public JwtAuthenticationExceptionHandler jwtAuthenticationExceptionHandler() {
+        return new JwtAuthenticationExceptionHandler();
     }
 
     public abstract PrivateKey privateKey() throws UnderpinningException;
