@@ -23,6 +23,9 @@
         <!-- Apache Commons Lang3 Version -->
         <org.apache.commons.commons-lang3.version>3.9</org.apache.commons.commons-lang3.version>
 
+        <!-- Apache Commons IO Version -->
+        <commons-io.version>2.6</commons-io.version>
+
         <!-- Jackson Version -->
         <com.fasterxml.jackson.core.version>2.10.1</com.fasterxml.jackson.core.version>
 
@@ -53,6 +56,13 @@
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-lang3</artifactId>
             <version>${org.apache.commons.commons-lang3.version}</version>
+        </dependency>
+
+        <!-- Apache Commons IO -->
+        <dependency>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
+            <version>${commons-io.version}</version>
         </dependency>
 
         <!-- Google Guava -->
