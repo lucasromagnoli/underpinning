@@ -4,12 +4,11 @@ Projeto desenvolvido para servir depência dos meus archetypes.
 
 ## Começando
 
-Essas instruções vão te ajudar a ter uma copia do projeto rodando em sua maquina local para desenvolvimento.
+Essas instruções vão te ajudar a ter uma copia do projeto compilado em sua maquina. Essencial para a compilação dos archetypes.
 
 ### Configurando e instalando
 
 1. Inserir as [tabelas básicas](https://github.com/lucasromagnoli/underpinning/blob/master/underpinning-web/src/main/resources/sql/underpinning.sql)
-
 
 ## Archetypes construidos com está dependência:
 
