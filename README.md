@@ -1,6 +1,6 @@
 # Underpinning
 
-Projeto desenvolvido para servir depência dos meus archetypes.
+Projeto desenvolvido para servir como dependência de archetypes.
 
 ## Começando
 
