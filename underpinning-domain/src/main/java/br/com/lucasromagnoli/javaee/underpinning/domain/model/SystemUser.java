@@ -22,7 +22,7 @@ public class SystemUser {
     @Column(name = "PASSWORD")
     private String password;
 
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(
             name = "UND_SYSTEM_USER_ROLES",
             joinColumns = @JoinColumn(name = "ID_SYSTEM_USER"),
