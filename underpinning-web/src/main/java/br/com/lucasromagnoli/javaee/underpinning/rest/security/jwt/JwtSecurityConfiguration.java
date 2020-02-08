@@ -3,6 +3,7 @@ package br.com.lucasromagnoli.javaee.underpinning.rest.security.jwt;
 import br.com.lucasromagnoli.javaee.underpinning.commons.exception.UnderpinningException;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 import java.security.PrivateKey;
 import java.security.PublicKey;
@@ -15,7 +16,7 @@ public abstract class JwtSecurityConfiguration extends WebSecurityConfigurerAdap
 
     @Bean
     public JwtAuthenticationService underpinningJwtSecurityService() throws UnderpinningException {
-        return new JwtAuthenticationService(publicKey(), privateKey());
+        return new JwtAuthenticationService(publicKey(), privateKey(), passwordEncoder());
     }
 
     @Bean
@@ -31,4 +32,6 @@ public abstract class JwtSecurityConfiguration extends WebSecurityConfigurerAdap
     public abstract PrivateKey privateKey() throws UnderpinningException;
 
     public abstract PublicKey publicKey() throws UnderpinningException;
+
+    public abstract PasswordEncoder passwordEncoder();
 }

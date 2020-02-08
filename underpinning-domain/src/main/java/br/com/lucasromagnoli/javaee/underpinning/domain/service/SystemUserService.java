@@ -1,9 +1,9 @@
 package br.com.lucasromagnoli.javaee.underpinning.domain.service;
 
+import br.com.lucasromagnoli.javaee.underpinning.commons.exception.UnderpinningAuthenticationFail;
 import br.com.lucasromagnoli.javaee.underpinning.domain.model.SystemUser;
-import br.com.lucasromagnoli.javaee.underpinning.domain.repository.jdbc.SystemUserJdbcRepository;
+import br.com.lucasromagnoli.javaee.underpinning.domain.repository.jpa.SystemUserJpaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 /**
@@ -14,10 +14,10 @@ import org.springframework.stereotype.Service;
 public class SystemUserService {
 
     @Autowired
-    SystemUserJdbcRepository systemUserJdbcRepository;
+    SystemUserJpaRepository systemUserJpaRepository;
 
-    public SystemUser findToAuthenticate (String username, String password) {
-        return systemUserJdbcRepository.findSystemUserByUsernameAndPassword(username, password)
-                .orElseThrow(() -> new UsernameNotFoundException("User not found"));
+    public SystemUser findToAuthenticate (String username) throws UnderpinningAuthenticationFail {
+        return systemUserJpaRepository.findByUsernameIgnoreCase(username)
+                .orElseThrow(() -> new UnderpinningAuthenticationFail("No users were found with this username"));
     };
 }
