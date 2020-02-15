@@ -76,7 +76,7 @@ public class ValidatorSupport {
         return this;
     }
 
-    public void validate() throws UnderpinningException {
+    public Validation validate() throws UnderpinningException {
         for (ValidationField field : fields) {
             try {
                 if (!BooleanSupport.isNull(validation.getDetails()) && !BooleanSupport.isNull(validation.getDetails().get(field.getName()))) {
@@ -89,6 +89,9 @@ public class ValidatorSupport {
                     case OBJECT_NOT_NULL:
                         verifyNullAndEmptyValues(field, reflectionReturn);
                         break;
+                    case OBJECT_EQUALS:
+                        verifyObjectEquals(field, reflectionReturn, field.getArguments()[0], field.getArguments()[1]);
+                        break;
                     case STRING_MAX_LENGTH:
                         verifyStringLength(field, reflectionReturn, 1, (Integer) field.getArguments()[0]);
                         break;
@@ -97,6 +100,9 @@ public class ValidatorSupport {
                         break;
                     case STRING_BETWEEN_LENGTH:
                         verifyStringLength(field, reflectionReturn, (Integer) field.getArguments()[0], (Integer) field.getArguments()[1]);
+                        break;
+                    case STRING_REGEX_MATCH:
+                        verifyStringMatchWithRegexPattern(field, reflectionReturn, field.getArguments()[0], (Integer) field.getArguments()[1]);
                         break;
                     case DATE_BEFORE:
                         verifyDateBefore(field, reflectionReturn, (Date) field.getArguments()[0]);
@@ -114,7 +120,8 @@ public class ValidatorSupport {
                 throw new UnderpinningInternalServerErrorException();
             }
         }
-        validation.throwValidationException();
+
+        return validation;
     }
 
     private void verifyNullAndEmptyValues (ValidationField field, Object target) {
@@ -149,6 +156,19 @@ public class ValidatorSupport {
         Date targetCasted = (Date) target;
 
         if (targetCasted.before(minDate) && targetCasted.after(maxDate)) {
+            validation.rejectField(field.getName(), field.getValidationType().message);
+        }
+    }
+
+    private void verifyObjectEquals(ValidationField field, Object target, Object objectToCompare, Object objectFieldName) {
+        if (!target.equals(objectToCompare)) {
+            validation.rejectField(field.getName(), field.getValidationType().message);
+            validation.rejectField(objectFieldName.toString(), field.getValidationType().message);
+        }
+    }
+
+    private void verifyStringMatchWithRegexPattern(ValidationField field, Object target, Object regex, int flags) {
+        if (!RegexSupport.matcher(target.toString(), regex.toString(), flags)) {
             validation.rejectField(field.getName(), field.getValidationType().message);
         }
     }

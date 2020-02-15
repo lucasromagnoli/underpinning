@@ -1,10 +1,16 @@
 package br.com.lucasromagnoli.javaee.underpinning.domain.service;
 
 import br.com.lucasromagnoli.javaee.underpinning.commons.exception.UnderpinningAuthenticationFail;
+import br.com.lucasromagnoli.javaee.underpinning.commons.support.RegexSupport;
+import br.com.lucasromagnoli.javaee.underpinning.commons.support.ValidatorSupport;
+import br.com.lucasromagnoli.javaee.underpinning.commons.validation.Validation;
+import br.com.lucasromagnoli.javaee.underpinning.commons.validation.ValidationType;
 import br.com.lucasromagnoli.javaee.underpinning.domain.model.SystemUser;
 import br.com.lucasromagnoli.javaee.underpinning.domain.repository.jpa.SystemUserJpaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.regex.Pattern;
 
 /**
  * @author github.com/lucasromagnoli
@@ -20,4 +26,9 @@ public class SystemUserService {
         return systemUserJpaRepository.findByUsernameIgnoreCase(username)
                 .orElseThrow(() -> new UnderpinningAuthenticationFail("No users were found with this username"));
     };
+
+    public Boolean existsByUsername(String username) {
+        return systemUserJpaRepository.existsByUsernameIgnoreCase(username);
+    }
+    
 }

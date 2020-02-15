@@ -6,9 +6,11 @@ package br.com.lucasromagnoli.javaee.underpinning.commons.validation;
  */
 public enum ValidationType {
     OBJECT_NOT_NULL(0, "This is a required field."),
+    OBJECT_EQUALS(2, "This field are not the same."),
     STRING_MAX_LENGTH(1, "This field has the wrong size."),
     STRING_MIN_LENGTH(1, "This field has the wrong size."),
     STRING_BETWEEN_LENGTH(2, "This field has the wrong size."),
+    STRING_REGEX_MATCH(2, "This field don't match with regex"),
     DATE_BEFORE(1, "This field value has the wrong value."),
     DATE_AFTER(1, "This field value has the wrong value."),
     DATE_BETWEEN(2, "This field value has the wrong value.");
