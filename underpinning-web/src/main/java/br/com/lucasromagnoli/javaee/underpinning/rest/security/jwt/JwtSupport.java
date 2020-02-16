@@ -4,7 +4,6 @@ import io.jsonwebtoken.Claims;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 
 import java.util.ArrayList;
-import java.util.LinkedHashMap;
 import java.util.List;
 
 /**
@@ -16,13 +15,13 @@ public class JwtSupport {
 
     public static JwtAuthenticatedUser createAuthenticatedUser(Claims claims) {
         String username = claims.getSubject();
-        List<LinkedHashMap<String, Object>> claimGrants = (List<LinkedHashMap<String, Object>>) claims.get(JwtParametersConfig.TOKEN_BODY_ROLES);
-        List<SimpleGrantedAuthority> listaRoles = new ArrayList<>();
+        List<String> claimGrants = (List<String>) claims.get(JwtParametersConfig.TOKEN_BODY_ROLES);
+        List<SimpleGrantedAuthority> listRoles = new ArrayList<>();
 
-        for (LinkedHashMap<String, Object> mapGrants : claimGrants) {
-            listaRoles.add(new SimpleGrantedAuthority(mapGrants.get(JwtParametersConfig.TOKEN_BODY_ROLES_NAME).toString()));
+        for (String grants : claimGrants) {
+            listRoles.add(new SimpleGrantedAuthority(grants));
         }
 
-        return new JwtAuthenticatedUser(username, listaRoles);
+        return new JwtAuthenticatedUser(username, listRoles);
     }
 }
