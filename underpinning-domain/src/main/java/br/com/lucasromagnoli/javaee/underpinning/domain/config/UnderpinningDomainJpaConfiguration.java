@@ -33,7 +33,7 @@ public class UnderpinningDomainJpaConfiguration {
     }
 
     @Bean
-    public EntityManagerFactory javaeeCorporativoEntityManagerFactory(DataSource dataSource) {
+    public EntityManagerFactory javaeeUnderpinningEntityManagerFactory(DataSource dataSource) {
         LocalContainerEntityManagerFactoryBean factoryBean = new LocalContainerEntityManagerFactoryBean();
         factoryBean.setJtaDataSource(dataSource);
         factoryBean.setJpaVendorAdapter(javaeeUnderpinningJpaVendorAdapter());
