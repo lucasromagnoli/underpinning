@@ -14,6 +14,7 @@ public class JwtSupport {
     private JwtSupport() {}
 
     public static JwtAuthenticatedUser createAuthenticatedUser(Claims claims) {
+        Long id = Long.valueOf(claims.get("user_id").toString());
         String username = claims.getSubject();
         List<String> claimGrants = (List<String>) claims.get(JwtParametersConfig.TOKEN_BODY_ROLES);
         List<SimpleGrantedAuthority> listRoles = new ArrayList<>();
@@ -22,6 +23,6 @@ public class JwtSupport {
             listRoles.add(new SimpleGrantedAuthority(grants));
         }
 
-        return new JwtAuthenticatedUser(username, listRoles);
+        return new JwtAuthenticatedUser(id, username, listRoles);
     }
 }

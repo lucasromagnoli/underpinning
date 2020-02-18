@@ -11,8 +11,14 @@ import java.util.List;
  */
 public class JwtAuthenticatedUser extends User {
 
-    public JwtAuthenticatedUser(String username, List<SimpleGrantedAuthority> roles ) {
+    private final Long id;
+
+    public JwtAuthenticatedUser(Long id, String username, List<SimpleGrantedAuthority> roles) {
         super(username, "", roles);
+        this.id = id;
     }
 
+    public Long getId() {
+        return this.id;
+    }
 }
