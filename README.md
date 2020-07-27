@@ -4,11 +4,7 @@ Projeto desenvolvido para servir como dependência de archetypes.
 
 ## Começando
 
-Essas instruções vão te ajudar a ter uma copia do projeto compilado em sua maquina. Essencial para a compilação dos archetypes.
-
-### Configurando e instalando
-
-1. Inserir as [tabelas básicas](https://github.com/lucasromagnoli/underpinning/blob/master/underpinning-web/src/main/resources/sql/underpinning.sql)
+Este projeto deve ser compilado utilizando o maven e servir de dependencias nos archetypes. Para verificar exemplos, veifique o código fonte dos archetypes construidos com este projeto.
 
 ## Archetypes construidos com está dependência:
 
