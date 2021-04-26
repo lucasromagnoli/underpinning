@@ -24,7 +24,7 @@
         <org.apache.commons.commons-lang3.version>3.9</org.apache.commons.commons-lang3.version>
 
         <!-- Apache Commons IO Version -->
-        <commons-io.version>2.6</commons-io.version>
+        <commons-io.version>2.7</commons-io.version>
 
         <!-- Jackson Version -->
         <com.fasterxml.jackson.core.version>2.10.1</com.fasterxml.jackson.core.version>
