@@ -24,7 +24,7 @@
         <spring-framework.version>5.2.9.RELEASE</spring-framework.version>
 
         <!-- Versão do Spring Security -->
-        <spring-security.version>5.2.1.RELEASE</spring-security.version>
+        <spring-security.version>5.2.10.RELEASE</spring-security.version>
 
         <!-- Versão do Mysql Connector -->
         <mysql-connector-java.version>8.0.18</mysql-connector-java.version>
