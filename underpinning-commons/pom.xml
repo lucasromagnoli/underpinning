@@ -27,7 +27,7 @@
         <commons-io.version>2.7</commons-io.version>
 
         <!-- Jackson Version -->
-        <com.fasterxml.jackson.core.version>2.12.1</com.fasterxml.jackson.core.version>
+        <com.fasterxml.jackson.core.version>2.12.7.1</com.fasterxml.jackson.core.version>
 
         <!-- Google Guava Version -->
         <com.google.guava.version>29.0-jre</com.google.guava.version>
